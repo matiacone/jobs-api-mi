@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "61887f66-7d2c-4a5f-bc19-8b256918d79a",
+		"name": "06-Jobs-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26935982"
+	},
+	"item": [
+		{
+			"name": "getAllJobs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTIwYmMyMTYwNDQ1NTRlODA5ZjQyZTkiLCJuYW1lIjoiTWF0aGV3IElhY29uZSIsImlhdCI6MTY5NjY0NDEyOSwiZXhwIjoxNjk5MjM2MTI5fQ.Wsr07wydegsjl1SCiVfbwIcG5tPoOeFk4wF0aHxd0H0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/jobs",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getJob",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/jobs/4",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createJob",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTIwYmMyMTYwNDQ1NTRlODA5ZjQyZTkiLCJuYW1lIjoiTWF0aGV3IElhY29uZSIsImlhdCI6MTY5NjY0NDEyOSwiZXhwIjoxNjk5MjM2MTI5fQ.Wsr07wydegsjl1SCiVfbwIcG5tPoOeFk4wF0aHxd0H0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company\":\"Draft Kings\",\"position\":\"Odds Maker\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/jobs",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateJob",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company\":\"Draft Kings\",\"position\":\"Odds Maker\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/jobs/6520c22b1fc196094c6efb6b",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs",
+						"6520c22b1fc196094c6efb6b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteJob",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/jobs/6520c22b1fc196094c6efb6b",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs",
+						"6520c22b1fc196094c6efb6b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Mathew Iacone\",\"email\":\"matiacone@gmail.com\",\"password\":\"Avocado3000!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json()\r",
+							"pm.globals.set(\"accessToken\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"matiacone@gmail.com\",\"password\":\"Avocado3000!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

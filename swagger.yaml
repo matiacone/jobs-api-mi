@@ -1,0 +1,239 @@
+openapi: 3.0.0
+info:
+  title: 06-Jobs-API
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://jobs-api-mi-ae1d45c4efac.herokuapp.com/api/v1
+  variables: {}
+paths:
+  /jobs:
+    get:
+      tags:
+      - Jobs
+      summary: getAllJobs
+      operationId: getAllJobs
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Jobs
+      summary: createJob
+      operationId: createJob
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/createJobRequest'
+              - example:
+                  company: Draft Kings
+                  position: Odds Maker
+            example:
+              company: Draft Kings
+              position: Odds Maker
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /jobs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The job ID
+    get:
+      tags:
+      - Jobs
+      summary: getJob
+      operationId: getJob
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    patch:
+      tags:
+      - Jobs
+      summary: updateJob
+      operationId: updateJob
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/updateJobRequest'
+              - example:
+                  company: Draft Kings
+                  position: Odds Maker
+            example:
+              company: Draft Kings
+              position: Odds Maker
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Jobs
+      summary: deleteJob
+      operationId: deleteJob
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /auth/register:
+    post:
+      tags:
+      - Auth
+      summary: Register User
+      operationId: RegisterUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/RegisterUserRequest'
+              - example:
+                  name: Mathew Iacone
+                  email: matiacone@gmail.com
+                  password: Avocado3000!
+            example:
+              name: Mathew Iacone
+              email: matiacone@gmail.com
+              password: Avocado3000!
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login User
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/LoginUserRequest'
+              - example:
+                  email: matiacone@gmail.com
+                  password: Avocado3000!
+            example:
+              email: matiacone@gmail.com
+              password: Avocado3000!
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    createJobRequest:
+      title: createJobRequest
+      required:
+      - company
+      - position
+      type: object
+      properties:
+        company:
+          type: string
+        position:
+          type: string
+      example:
+        company: Draft Kings
+        position: Odds Maker
+    updateJobRequest:
+      title: updateJobRequest
+      required:
+      - company
+      - position
+      type: object
+      properties:
+        company:
+          type: string
+        position:
+          type: string
+      example:
+        company: Draft Kings
+        position: Odds Maker
+    RegisterUserRequest:
+      title: RegisterUserRequest
+      required:
+      - name
+      - email
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: Mathew Iacone
+        email: matiacone@gmail.com
+        password: Avocado3000!
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: matiacone@gmail.com
+        password: Avocado3000!
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: Jobs
+  description: ''
+- name: Auth
+  description: ''
