@@ -23,7 +23,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTIwYmMyMTYwNDQ1NTRlODA5ZjQyZTkiLCJuYW1lIjoiTWF0aGV3IElhY29uZSIsImlhdCI6MTY5NjY0NDEyOSwiZXhwIjoxNjk5MjM2MTI5fQ.Wsr07wydegsjl1SCiVfbwIcG5tPoOeFk4wF0aHxd0H0",
+						"value": "Bearer {{accessToken}}",
 						"type": "text",
 						"disabled": true
 					}
@@ -75,7 +75,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTIwYmMyMTYwNDQ1NTRlODA5ZjQyZTkiLCJuYW1lIjoiTWF0aGV3IElhY29uZSIsImlhdCI6MTY5NjY0NDEyOSwiZXhwIjoxNjk5MjM2MTI5fQ.Wsr07wydegsjl1SCiVfbwIcG5tPoOeFk4wF0aHxd0H0",
+						"value": "{{accessToken}}",
 						"type": "text",
 						"disabled": true
 					}
